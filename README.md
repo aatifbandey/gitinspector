@@ -9,7 +9,7 @@ gitinspector/
 ├── client                          # Frontend
 ├── server                          # Backend
 ├── package.json                    # Dependencies
-|── webpack.config                  # Webpack config
+├── webpack.config                  # Webpack config
 ```
 ## Requirements
 
@@ -26,6 +26,13 @@ gitinspector/
 3. Run `pnpm run server`
 4. Open browser `localhost:8080`
 5. Done.
+
+## Tech stack
+1. React
+2. Redux & redux-saga
+3. Node
+4. Koa
+5. Redis (node)
 
 
 ## Contributors

@@ -24,23 +24,9 @@ const Routes = () => {
         </Layout>
     );
   };
+ 
   
-//   Routes.propTypes = {
-//     history: object.isRequired,
-//     location: object.isRequired,
-//     match: object.isRequired,
-//     /**
-//      * `staticContext` is whatever we passed as context to `<StaticRouter />` during SSR process
-//      * check: `poseidon/server/renderer/index.js`
-//      */
-//     staticContext: object,
-//   };
+const RootRoutes = () => <Route component={Routes} />;
   
-//   Routes.defaultProps = {
-//     staticContext: null,
-//   };
-  
-  const RootRoutes = () => <Route component={Routes} />;
-  
-  export default RootRoutes;
+export default RootRoutes;
   

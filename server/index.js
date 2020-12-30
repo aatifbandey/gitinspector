@@ -18,17 +18,14 @@ app.use(logger());
 app.use(cors());
 
 
-router.get('/healthcheck', ctx => {
+router.get('/', ctx => {
     console.log(ctx);
-   
-    ctx.body = "Server running";
+    ctx.body = "<h1>Service is running<h1>";
     return ctx;
 });
 
 router.post('/api/search', async ctx => {
-    
-		const res = await getApiResponse(ctx);
-		console.log(res);
+	const res = await getApiResponse(ctx);
     ctx.body = {
     	data: res.data,
     	source: res.source

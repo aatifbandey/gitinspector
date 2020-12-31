@@ -34,6 +34,7 @@ gitinspector/
 4. Koa
 5. Redis (node)
 
-
+## API Documentation
+- [Doc](https://app.swaggerhub.com/apis/aatifbandey/gitinspector/1.0.0#/InventoryItem)
 ## Contributors
-- Aatif Bandey <twitter.com/aatifbandey>
+- [Aatif Bandey](twitter.com/aatifbandey>)

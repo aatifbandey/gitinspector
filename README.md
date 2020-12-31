@@ -29,7 +29,7 @@ gitinspector/
 
 ## Tech stack
 1. React (v:16+)
-2. Redux & redux-saga
+2. Redux, redux-saga, redux-persist
 3. Node
 4. Koa
 5. Redis (node)

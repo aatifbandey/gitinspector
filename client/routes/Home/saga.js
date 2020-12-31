@@ -11,13 +11,14 @@ function* getData (data) {
 		const res = yield call(apiResource.post, url, payload);
 		console.log(res);
     if (res && res.data) {
-      yield put(
-        updateResults({
-					data: res.data?.items,
-					type: payload.type
-        })
-			);
-		} 
+      	yield put(
+			updateResults({
+				data: res.data?.items,
+				type: payload.type,
+				search: payload.search
+			})
+		);
+	} 
   } catch(e) {
 
 	}

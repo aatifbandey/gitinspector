@@ -21,4 +21,14 @@ export const updateResults = (obj) => {
       ...obj,
     },
   };
+};
+
+
+export const getDataFromStore = (obj) => {
+  return {
+    type: "GET_DATA_FROM_STORE",
+    payload: {
+      ...obj,
+    },
+  };
 }

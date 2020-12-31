@@ -5,7 +5,7 @@ import { cardContainer, notfound, loadingClass } from "./styles";
 
 const ResultContainer = (props) => {
 	const { results, type, apiCall, loading } = props;
-	console.log(results)
+
 
 	const renderCards = () =>{
 		

@@ -1,5 +1,5 @@
 import React from "react";
-import { string, object } from "prop-types";
+import { string, array } from "prop-types";
 import { singleCard, imgHolder, content } from "./styles";
 
 const Card = (props) => {
@@ -22,7 +22,6 @@ const Card = (props) => {
 			{image ? <div className={imgHolder}> <img src={image}/> </div> : ""}
 			<div className={content}>
 				{showContent()}
-				
 			</div>
 		</div>
 	)
@@ -30,6 +29,6 @@ const Card = (props) => {
 
 Card.propTypes = {
 	image: string.isRequired,
-	obj: object.isRequired
+	obj: array.isRequired
 }
 export default Card;

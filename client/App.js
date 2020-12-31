@@ -2,6 +2,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { object } from 'prop-types';
+import { PersistGate } from 'redux-persist/integration/react'
 
 
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -9,20 +10,22 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import ErrorView from './components/ErrorView';
 
-import { configureStore } from './store';
+import { configureStore,  } from './store';
 // import Routes from '@route-gateway';
 
-const store = configureStore({});
+const { store, persistor } = configureStore({});
 import Routes from './routes';
 
 function App({ history }) {
   return (
     <Provider store={store}>
-    	<ErrorBoundary render={() => <ErrorView />}>
-   			<Router history={history}>
-        	<Routes />
-        </Router>
-    	</ErrorBoundary>
+      	<PersistGate loading={null} persistor={persistor}>
+    		<ErrorBoundary render={() => <ErrorView />}>
+   				<Router history={history}>
+        			<Routes />
+        		</Router>
+    		</ErrorBoundary>
+      	</PersistGate>
     </Provider>
   );
 }

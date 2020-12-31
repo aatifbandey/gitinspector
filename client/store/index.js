@@ -3,6 +3,16 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { createReducer } from '../reducers';
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { persistStore, persistReducer } from 'redux-persist'
+
+const persistConfig = {
+  key: 'search',
+  storage,
+  whitelist: ['homeReducer']
+};
+
+
 
 export const configureStore = (initialState = {}, history) => {
   let composeEnhancers = compose;
@@ -25,13 +35,16 @@ export const configureStore = (initialState = {}, history) => {
   const middlewares = [sagaMiddleware, routerMiddleware(history)];
 
   const enhancers = [applyMiddleware(...middlewares)];
+  const persistedReducer = persistReducer(persistConfig, createReducer())
+
 
   const store = createStore(
-    createReducer(),
+    persistedReducer,
     initialState,
     composeEnhancers(...enhancers),
   );
-
+  const persistor = persistStore(store)
+    
   // Extensions
   store.runSaga = sagaMiddleware.run;
   store.injectedReducers = {}; // Reducer registry
@@ -44,5 +57,8 @@ export const configureStore = (initialState = {}, history) => {
     });
   }
   /* eslint-enable */
-  return store;
+  return {
+    store,
+    persistor
+  }
 }

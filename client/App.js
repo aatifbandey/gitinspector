@@ -11,7 +11,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 import ErrorView from './components/ErrorView';
 
 import { configureStore,  } from './store';
-// import Routes from '@route-gateway';
 
 const { store, persistor } = configureStore({});
 import Routes from './routes';
@@ -31,7 +30,6 @@ function App({ history }) {
 }
 
 App.propTypes = {
-  client: object.isRequired,
   history: object.isRequired,
 };
 

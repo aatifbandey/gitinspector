@@ -20,11 +20,5 @@ const Home = (props) => {
   
 }
 
-// function mapStateToProps(props) {
-//   return {
-//     ...props,
-//   };
-// }
 export default Home;
-// export default connect(mapStateToProps)(Home);
 

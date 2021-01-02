@@ -1,7 +1,7 @@
 # Git Inspector
 **Version 1.0**
 - An app to search for github users and repositories.
-- A fullstack app with front-end as react, redux and redux saga with redux. On backend we have node, koa and redis.
+- A fullstack app with front-end as react, redux and redux saga. On backend we have node, koa and redis.
 
 # Folder structure
 ```sh

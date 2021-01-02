@@ -15,6 +15,7 @@ module.exports = {
                 "test": /\.js$/,
                 "exclude": /node_modules/,
                 "loader": "eslint-loader",
+                "indent": ["error", 2],
                 "options": {
                   "emitWarning": true,
                   "failOnError": false,

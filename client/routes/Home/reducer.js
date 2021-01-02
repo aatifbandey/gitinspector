@@ -20,6 +20,7 @@ export const homeReducer = (state = initialState, action) => {
             type: action.payload.type,
             apiCall: true
         };
+        
     case "GET_DATA_FROM_STORE":
    
         return {

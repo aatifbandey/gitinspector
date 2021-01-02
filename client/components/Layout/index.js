@@ -9,6 +9,7 @@ const Layout = props => {
   return <div className={container}>{children}</div>;
 };
 
+
 Layout.propTypes = {
   children: node.isRequired,
 };

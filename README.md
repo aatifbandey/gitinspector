@@ -14,8 +14,8 @@ gitinspector/
 ## Requirements
 
 - node
-- pnpm                              
-- redis
+- pnpm   `you can use yarn or npm too`                        
+- redis  `Install redis on system or server`
 
 
 ## Installation

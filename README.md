@@ -29,10 +29,11 @@ gitinspector/
 
 ## Tech stack
 1. React (v:16+)
-2. Redux, redux-saga, redux-persist
-3. Node
-4. Koa
-5. Redis (node)
+2. [Emotion](https://emotion.sh/docs/introduction)
+3. Redux, redux-saga, redux-persist
+4. Node
+5. Koa
+6. Redis (node)
 
 ## API Documentation
 - [Doc](https://app.swaggerhub.com/apis/aatifbandey/gitinspector/1.0.0#/InventoryItem)

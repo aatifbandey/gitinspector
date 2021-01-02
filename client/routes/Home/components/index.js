@@ -8,94 +8,94 @@ import { parent, elementsParent } from "./styles";
 import Heading from "./Heading";
 
 const View = (props) => {
-	const { dispatch, state } = props;
-	const [ loading, updateLoading] = useState(false);
-	const [search, updateSearch] = useState('');
-	const [type, selectType] = useState('user');
+  const { dispatch, state } = props;
+  const [ loading, updateLoading] = useState(false);
+  const [search, updateSearch] = useState('');
+  const [type, selectType] = useState('user');
 
 	
-	const apiCall = state.apiCall;
+  const apiCall = state.apiCall;
 
-	let results;
-	if(loading ) {
-		results = state.data ? state.data[`${state.search}_${state.type}`] : []
-	} else {
-		results = state.data ? state.data[`${search}_${type}`] : []
-	}
+  let results;
+  if(loading ) {
+    results = state.data ? state.data[`${state.search}_${state.type}`] : []
+  } else {
+    results = state.data ? state.data[`${search}_${type}`] : []
+  }
 	
-	useEffect(()=>{
-		// Show loading effect
-		setTimeout(()=>{
-			updateLoading(false);
-		}, 500);
+  useEffect(()=>{
+    // Show loading effect
+    setTimeout(()=>{
+      updateLoading(false);
+    }, 500);
 		
-	},[state.data])
+  },[state.data])
 	
 	
-	const performSearch = (e) => {
-		let searchVal = e.target.value;
-		searchVal= searchVal.trim();
-		if(searchVal.length >= 3) {
+  const performSearch = (e) => {
+    let searchVal = e.target.value;
+    searchVal= searchVal.trim();
+    if(searchVal.length >= 3) {
 			
-			if(state.data && state.data[`${searchVal}_${type}`]) {
-				dispatch(getDataFromStore({
-					search: searchVal,
-					type
-				}));
-			} else {
-				dispatch(getGitData({
-					search: searchVal,
-					type,
-				}));
-				if(searchVal) {
-					updateLoading(true);
-				}
-			}
+      if(state.data && state.data[`${searchVal}_${type}`]) {
+        dispatch(getDataFromStore({
+          search: searchVal,
+          type
+        }));
+      } else {
+        dispatch(getGitData({
+          search: searchVal,
+          type,
+        }));
+        if(searchVal) {
+          updateLoading(true);
+        }
+      }
 			
-		} else {
-			dispatch(getDataFromStore({
-				search:"",
-				type
-			}));	
-		}
+    } else {
+      dispatch(getDataFromStore({
+        search:"",
+        type
+      }));	
+    }
 	
-		updateSearch(searchVal);
+    updateSearch(searchVal);
 		
 
-	}
-	const getData = debounce(performSearch, 500);
+  }
+  const getData = debounce(performSearch, 500);
 
-	const onChange = (e) => {
-		if(search && search.length >=3) {
-			if(state.data && state.data[`${search}_${e.target.value}`]) {
-				dispatch(getDataFromStore({
-					search,
-					type: e.target.value
-				}));
-			} else {
-				dispatch(getGitData({
-					search,
-					type: e.target.value
-				}))
-				updateLoading(true);
-			}
-		}
-		selectType(e.target.value);
-	}
+  const onChange = (e) => {
+    if(search && search.length >=3) {
+      if(state.data && state.data[`${search}_${e.target.value}`]) {
+        dispatch(getDataFromStore({
+          search,
+          type: e.target.value
+        }));
+      } else {
+        dispatch(getGitData({
+          search,
+          type: e.target.value
+        }))
+        updateLoading(true);
+      }
+    }
+    selectType(e.target.value);
+  }
   return(
     <div className={parent}>
 
-		<Heading />
+      <Heading />
       
       	<div className={elementsParent}>
-			<input type="text" placeHolder={"Start typing to search"} onChange={getData} />
-			<select onChange={onChange} >
-				<option selected={type === 'user'} value="user">Users</option>
-				<option selected={type === 'repo'} value={"repo"}>Repositories</option>
-			</select>
+        <input type="text" placeHolder={"Start typing to search"} onChange={getData} />
+        <select onChange={onChange} >
+          <option selected={type === 'user'} value="user">Users</option>
+          <option selected={type === 'repo'} value={"repo"}>Repositories</option>
+        </select>
       	</div>
 		
-		{ results  ? <ResultContainer results={results} type={type} apiCall={apiCall} loading={loading}/> : ""}
+      { results  ? <ResultContainer results={results} type={type} apiCall={apiCall} loading={loading}/> : ""}
 				
 		
     </div>
@@ -103,8 +103,8 @@ const View = (props) => {
 };
 
 View.propTypes={
-	dispatch: func.isRequired,
-	state: shape({}).isRequired
+  dispatch: func.isRequired,
+  state: shape({}).isRequired
 };
 
 export default View;

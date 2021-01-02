@@ -19,27 +19,27 @@ app.use(cors());
 
 
 router.get('/', ctx => {
-    console.log(ctx);
-    ctx.body = "<h1>Service is running<h1>";
-    return ctx;
+  console.log(ctx);
+  ctx.body = "<h1>Service is running<h1>";
+  return ctx;
 });
 
 router.post('/api/search', async ctx => {
-	const res = await getApiResponse(ctx);
-    ctx.body = {
+  const res = await getApiResponse(ctx);
+  ctx.body = {
     	data: res.data,
     	source: res.source
-    };
-    return ctx;
+  };
+  return ctx;
 });
 
 router.get('/api/clear-cache', async ctx => {
     
-	await deleteCache();
-	ctx.body = {
-		message: "Cache Deleted"
-	};
-	return ctx;
+  await deleteCache();
+  ctx.body = {
+    message: "Cache Deleted"
+  };
+  return ctx;
 });
 
 app.use(router.routes());
@@ -47,7 +47,7 @@ app.use(router.routes());
 
 
 app.listen(PORT, function () {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/", PORT, PORT);
+  console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/", PORT, PORT);
 });
 
 

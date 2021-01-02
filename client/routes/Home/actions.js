@@ -15,7 +15,7 @@ export function getGitData(obj) {
 }
 
 export const updateResults = (obj) => {
-	return {
+  return {
     type: "UPDATE_RESULTS",
     payload: {
       ...obj,

@@ -37,7 +37,7 @@ export function injectSagaFactory(store, isValid) {
 
     checkKey(key);
     checkDescriptor(newDescriptor);
-     /* eslint-disable */
+    /* eslint-disable */
     let hasSaga = Reflect.has(store.injectedSagas, key);
 
     if (process.env.NODE_ENV !== 'production') {

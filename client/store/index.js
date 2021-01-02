@@ -17,7 +17,7 @@ const persistConfig = {
 export const configureStore = (initialState = {}, history) => {
   let composeEnhancers = compose;
   const reduxSagaMonitorOptions = {};
-    /* eslint-disable */
+  /* eslint-disable */
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production' && typeof window === 'object') {

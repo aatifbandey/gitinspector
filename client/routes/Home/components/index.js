@@ -88,7 +88,7 @@ const View = (props) => {
       <Heading />
       
       	<div className={elementsParent}>
-        <input type="text" placeHolder={"Start typing to search"} onChange={getData} />
+        <input type="text" placeHolder={"Start typing to search"} onChange={getData} data-testid="seach-bar" />
         <select onChange={onChange} >
           <option selected={type === 'user'} value="user">Users</option>
           <option selected={type === 'repo'} value={"repo"}>Repositories</option>
